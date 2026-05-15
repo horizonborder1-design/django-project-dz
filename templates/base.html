@@ -1,0 +1,31 @@
+{% load static %}  
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Задача с Django{% endblock %}</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    {% block extra_css %}{% endblock %} 
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="/">Django Flatpages</a>
+            <span class="navbar-text text-white">
+                {% if user.is_authenticated %}
+                    👋 Привет, {{ user.username }}!
+                {% else %}
+                     Гость
+                {% endif %}
+            </span>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %}{% endblock %} 
+    </div>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

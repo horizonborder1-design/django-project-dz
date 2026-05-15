@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ flatpage.title }}{% endblock %}
+{% block extra_css %}
+    <style>
+        .custom-text {
+            font-family: 'Georgia', serif;
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="custom-text">
+        <h1>{{ flatpage.title }}</h1>
+        {{ flatpage.content }}
+    </div>
+{% endblock %}
